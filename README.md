@@ -169,5 +169,19 @@ snippets:
       </entry>
 ```
 
-Third, create simple logic to read the input file and assign variables
+Third, create logic to read the input file and assign variables for each skillet
 
+```python
+from skilletlib import SkilletLoader
+sl = SkilletLoader('./skillets')
+add_security_rule = sl.get_skillet_with_name("add_security_rule")
+
+c = dict()
+c["rule_name"] = 'my rule'
+c["rule_description"] = 'my comment'
+c["source_group"] = 'source_group'
+c["destination_group"] = 'dest_group'
+
+add_security_rule.execute(c)
+
+```

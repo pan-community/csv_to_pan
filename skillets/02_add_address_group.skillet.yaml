@@ -1,0 +1,30 @@
+name: add_address_group
+label: Add Address Group
+description: Assigns IPs to a Group
+
+type: panos
+
+variables:
+  - name: device_group
+    default: poc-dg
+    description: Device Group
+    type_hint: text
+  - name: ipv4_address
+    default: 192.168.254.254
+    description: IP Address
+    type_hint: ip_address
+  - name: ipv4_address_group
+    default: ADDRESS_GROUP
+    description: IP Address Group
+    type_hint: text
+
+snippets:
+  - name: snippet_1
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="{{ device_group }}"]
+    element: |-
+      <address-group>
+        <entry name="{{ ipv4_address_group }}">
+          <static>
+            <member>ip{{ ipv4_address }}</member>
+          </static>
+        </entry>

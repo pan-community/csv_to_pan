@@ -1,0 +1,27 @@
+{
+  "rules": [
+    {
+      "source": {
+        "group_name": "SOURCE_GROUP_1",
+        "members": [
+          "10.0.0.1",
+          "10.0.2.1"
+        ]
+      },
+      "dest": {
+        "group_name": "DEST_GROUP_1",
+        "members": [
+          "192.168.1.1"
+        ]
+      },
+      "port": {
+        "group_name": "PORT_GROUP_1",
+        "members": [
+          "TCP80"
+        ]
+      },
+      "comment": "Test Comment",
+      "rule_name": "test rule 1"
+    }
+  ]
+}

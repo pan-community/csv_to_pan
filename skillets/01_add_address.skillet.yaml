@@ -1,0 +1,24 @@
+name: add_address_object
+label: Add Address Objects
+description: Adds an IP Address Entry
+
+type: panos
+
+variables:
+  - name: device_group
+    default: poc-dg
+    description: Device Group
+    type_hint: text
+  - name: ipv4_address
+    default: 192.168.254.254
+    description: IP Address
+    type_hint: ip_address
+
+snippets:
+  - name: snippet_1
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="poc-dg"]/address
+    element: |-
+      <entry name="ip{{ ipv4_address }}">
+        <ip-netmask>{{ ipv4_address }}</ip-netmask>
+      </entry>
+

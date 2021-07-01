@@ -1,0 +1,67 @@
+name: add_security_rule
+label: Add Security Rule
+description: Adds a security rule
+
+type: panos
+
+variables:
+  - name: device_group
+    default: poc-dg
+    description: Device Group
+    type_hint: text
+  - name: rule_name
+    default: RULE_NAME_1
+    description: Rule Name
+    type_hint: text
+  - name: rule_description
+    default: RULE_NAME_1
+    description: Rule Description
+    type_hint: text
+  - name: source_group
+    default: SOURCE_GROUP_1
+    description: Source Group
+    type_hint: text
+  - name: destination_group
+    default: DESTINATION_GROUP_1
+    description: Destination Group
+    type_hint: text
+
+snippets:
+  - name: snippet_1
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="{{ device_group }}"]
+    element: |-
+      <pre-rulebase>
+        <security>
+          <rules>
+            <entry name="{{ rule_name }}">
+              <from>
+                <member>any</member>
+              </from>
+              <source>
+                <member>{{ source_group }}</member>
+              </source>
+              <to>
+                <member>any</member>
+              </to>
+              <destination>
+                <member>{{ destiniation_group }}</member>
+              </destination>
+              <application>
+                <member>web-browsing</member>
+              </application>
+              <service>
+                <member>{{ service_group }}</member>
+              </service>
+              <action>allow</action>
+              <profile-setting>
+                <group>
+                  <member>default</member>
+                </group>
+              </profile-setting>
+              <log-setting>default</log-setting>
+              <description>{{ rule_description }}</description>
+              <group-tag>SectionTitle2</group-tag>
+            </entry>
+          </rules>
+        </security>
+      </pre-rulebase>

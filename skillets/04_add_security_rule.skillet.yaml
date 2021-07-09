@@ -25,9 +25,13 @@ variables:
     default: DESTINATION_GROUP_1
     description: Destination Group
     type_hint: text
+  - name: service_group
+    default: SERVICE_GROUP_1
+    description: Service Group
+    type_hint: text
 
 snippets:
-  - name: snippet_1
+  - name: add_security_rule
     xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="{{ device_group }}"]
     element: |-
       <pre-rulebase>
@@ -44,7 +48,7 @@ snippets:
                 <member>any</member>
               </to>
               <destination>
-                <member>{{ destiniation_group }}</member>
+                <member>{{ destination_group }}</member>
               </destination>
               <application>
                 <member>web-browsing</member>
@@ -53,14 +57,7 @@ snippets:
                 <member>{{ service_group }}</member>
               </service>
               <action>allow</action>
-              <profile-setting>
-                <group>
-                  <member>default</member>
-                </group>
-              </profile-setting>
-              <log-setting>default</log-setting>
               <description>{{ rule_description }}</description>
-              <group-tag>SectionTitle2</group-tag>
             </entry>
           </rules>
         </security>

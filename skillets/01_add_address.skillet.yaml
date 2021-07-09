@@ -15,7 +15,7 @@ variables:
     type_hint: ip_address
 
 snippets:
-  - name: snippet_1
+  - name: add_address_object
     xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="poc-dg"]/address
     element: |-
       <entry name="ip{{ ipv4_address }}">

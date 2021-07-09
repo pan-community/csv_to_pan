@@ -19,7 +19,7 @@ variables:
     type_hint: text
 
 snippets:
-  - name: snippet_1
+  - name: add_address_group
     xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="{{ device_group }}"]
     element: |-
       <address-group>
@@ -28,3 +28,4 @@ snippets:
             <member>ip{{ ipv4_address }}</member>
           </static>
         </entry>
+      </address-group>

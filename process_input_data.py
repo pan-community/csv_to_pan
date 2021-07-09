@@ -101,5 +101,6 @@ for r in input_data.get("rules", []):
     c["rule_description"] = comment
     c["source_group"] = source_group_name
     c["destination_group"] = dest_group_name
+    c["service_group"] = service_group_name
 
     add_security_rule.execute(c)

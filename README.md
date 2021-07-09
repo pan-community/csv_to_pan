@@ -5,6 +5,14 @@ Simple tools to build NGFW configuration snippets from CSV input files
 
 ## Example Building Skillets
 
+SLI is a tool used to manage PAN-OS configuration sets. It can be used to obtain the information necessary
+to use the PAN-OS XML API efficiently. SLI allows you to configure a NGFW or Panorama and 'export' those 
+changes in an XML format that readily be used by the XML API.
+
+Refer to the official docs for more information:
+https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-panorama-api/pan-os-xml-api-request-types/configuration-api/set-configuration.html 
+
+
 First, use SLI to create base skillets from each config diff for each step in the desired process:
 
 ```bash

@@ -16,7 +16,7 @@ variables:
 
 snippets:
   - name: add_address_object
-    xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="poc-dg"]/address
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/device-group/entry[@name="{{ device_group }}"]/address
     element: |-
       <entry name="ip{{ ipv4_address }}">
         <ip-netmask>{{ ipv4_address }}</ip-netmask>
